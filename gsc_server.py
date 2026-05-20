@@ -21,9 +21,12 @@ from googleapiclient.errors import HttpError
 logging.getLogger("googleapiclient.discovery_cache").setLevel(logging.ERROR)
 
 # MCP
+import os
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("gsc-server")
+mcp_host = os.environ.get("MCP_HOST", "127.0.0.1")
+mcp_port = int(os.environ.get("MCP_PORT", "3001"))
+mcp = FastMCP("gsc-server", host=mcp_host, port=mcp_port)
 
 def _expand_path(path: Optional[str]) -> Optional[str]:
     """Expand ``~`` and environment variables in a path, returning None for empty input.
@@ -1668,7 +1671,7 @@ def main():
     if transport == "stdio":
         mcp.run(transport="stdio")
     elif transport in {"sse", "http"}:
-        mcp.run(transport="sse", host=host, port=port)
+        mcp.run(transport="sse")
     else:
         raise ValueError(
             f"Unknown MCP_TRANSPORT '{transport}'. "
