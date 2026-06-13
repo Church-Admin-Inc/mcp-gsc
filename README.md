@@ -2,8 +2,8 @@
 
 A Model Context Protocol (MCP) server that connects [Google Search Console](https://search.google.com/search-console/about) (GSC) to AI assistants, allowing you to analyze your SEO data through natural language conversations. Works with **Claude Desktop**, **Cursor**, **Codex CLI**, **Gemini CLI**, **Antigravity**, and any other MCP-compatible client.
 
-> **Prefer zero setup?** There's also a hosted version of this MCP server with one-click Google sign-in, no Python, no terminal, and added GA4 tools — works in Claude.ai, ChatGPT, Cursor, Claude Desktop, and any MCP client.
-> → [**Advanced GSC MCP (hosted)**](https://www.advancedgsc.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=mcp-gsc&utm_content=hero-callout) · starts at $12/mo during the founding cohort.
+> **Want way more?** There's a hosted version of this MCP server that's far more advanced — zero setup, no Python, no terminal, with one-click Google sign-in and added GA4 tools. Works with Claude Desktop, Claude Code, Claude.ai, Codex, Cursor, and any other MCP client. Only **100 seats available**.
+> → [**Advanced GSC MCP (hosted)**](https://www.advancedgsc.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=mcp-gsc&utm_content=hero-callout)
 
 ---
 
@@ -67,7 +67,7 @@ A Model Context Protocol (MCP) server that connects [Google Search Console](http
 
 <div align="center">
   <a href="https://www.advancedgsc.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=mcp-gsc&utm_content=banner">
-    <img src="assets/mcp-banner.jpg" alt="Skip setup — try the hosted MCP server with one-click Google sign-in. Works in ChatGPT and Claude web. Includes GA4 and advanced SEO tools." width="800" style="margin: 20px 0; border-radius: 8px;">
+    <img src="assets/mcp-banner.png" alt="Skip setup — try the hosted MCP server with one-click Google sign-in. Works in ChatGPT and Claude web. Includes GA4 and advanced SEO tools." width="800" style="margin: 20px 0; border-radius: 8px;">
   </a>
 </div>
 
