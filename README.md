@@ -67,7 +67,7 @@ A Model Context Protocol (MCP) server that connects [Google Search Console](http
 
 <div align="center">
   <a href="https://www.advancedgsc.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=mcp-gsc&utm_content=banner">
-    <img src="assets/mcp-banner.png" alt="Skip setup — try the hosted MCP server with one-click Google sign-in. Works in ChatGPT and Claude web. Includes GA4 and advanced SEO tools." width="800" style="margin: 20px 0; border-radius: 8px;">
+    <img src="assets/banner-1.jpg" alt="Skip setup — try the hosted MCP server with one-click Google sign-in. Works in ChatGPT and Claude web. Includes GA4 and advanced SEO tools." width="800" style="margin: 20px 0; border-radius: 8px;">
   </a>
 </div>
 
@@ -102,7 +102,7 @@ On first use, a browser window will open asking you to sign in to your Google ac
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=vhIOoD7B8Ow">
-    <img src="assets/new-video-thumbnail.jpg" alt="GSC MCP Server Installation Guide 2026" width="600" style="margin: 20px 0; border-radius: 8px;">
+    <img src="assets/seo-mcp-install-video-1.jpg" alt="GSC MCP Server Installation Guide 2026" width="600" style="margin: 20px 0; border-radius: 8px;">
   </a>
 </div>
 
@@ -238,7 +238,7 @@ For OAuth: on first use, a browser window will open automatically for login. Aft
 
 <div align="center">
   <a href="https://youtu.be/PCWsK5BgSd0">
-    <img src="https://i.ytimg.com/vi/PCWsK5BgSd0/maxresdefault.jpg" alt="Google Search Console API Setup Tutorial" width="600" style="margin: 20px 0; border-radius: 8px;">
+    <img src="assets/gsc-mcp-seo-video-2.jpg" alt="Google Search Console API Setup Tutorial" width="600" style="margin: 20px 0; border-radius: 8px;">
   </a>
 </div>
 
