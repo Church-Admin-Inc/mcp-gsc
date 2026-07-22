@@ -30,7 +30,6 @@ Set `GSC_SKIP_OAUTH=true` to force service account mode and skip OAuth entirely.
 | `MCP_TRANSPORT` | `stdio` | Set to `sse` for remote/Docker/network use |
 | `MCP_HOST` | `127.0.0.1` | Host to bind when `MCP_TRANSPORT=sse` |
 | `MCP_PORT` | `3001` | Port to bind when `MCP_TRANSPORT=sse` |
-| `MCP_PUBLIC_URL` | — | Public HTTPS URL of the deployment (e.g. Cloud Run URL). When set with `MCP_TRANSPORT=sse`, enables an OAuth 2.1 shim so MCP clients that require a working OAuth handshake (e.g. claude.ai custom connectors) can connect. It auto-approves clients and issues tokens without a real login — actual Google auth is still enforced via `GSC_CREDENTIALS_PATH`/`client_secrets.json`. |
 | `GSC_DATA_STATE` | `all` | `all` = matches GSC dashboard; `final` = confirmed data only (2–3 day lag) |
 | `GSC_ALLOW_DESTRUCTIVE` | `false` | Set `true` to enable `add_site`, `delete_site`, `delete_sitemap` |
 | `GSC_CREDENTIALS_PATH` | — | Path to service account JSON key file |
