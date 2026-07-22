@@ -5,6 +5,20 @@ import json
 import sys
 import shutil
 from datetime import datetime, timedelta
+
+# Fail loudly on unsupported Python. The mcp/FastMCP dependency requires 3.11+.
+# On Python 3.10 or older the server dies during import, and when it is launched
+# by a GUI client (e.g. Claude Desktop) that failure is silent — no tools appear
+# and no log file is written, which is impossible to diagnose. See issue #19.
+if sys.version_info < (3, 11):
+    sys.exit(
+        "mcp-gsc requires Python 3.11 or newer, but you are running "
+        f"{sys.version_info.major}.{sys.version_info.minor}. "
+        "Install Python 3.11+ (https://www.python.org/downloads/) and recreate "
+        "your virtual environment, or use the uvx install method which manages "
+        "the Python version for you."
+    )
+
 from platformdirs import user_config_dir
 
 import google.auth
@@ -1671,6 +1685,17 @@ def main():
     if transport == "stdio":
         mcp.run(transport="stdio")
     elif transport in {"sse", "http"}:
+        # mcp SDK >= 1.27 removed the host/port kwargs from run() (they must be
+        # set on mcp.settings instead) and enabled DNS-rebinding protection with
+        # a Host allowlist of localhost only — which 421s the remote/Docker
+        # binding the operator explicitly opted into via MCP_HOST. Disable that
+        # check for the documented remote path. See issues #30 and #33.
+        mcp.settings.host = host
+        mcp.settings.port = port
+        try:
+            mcp.settings.transport_security.enable_dns_rebinding_protection = False
+        except Exception:
+            pass
         mcp.run(transport="sse")
     else:
         raise ValueError(

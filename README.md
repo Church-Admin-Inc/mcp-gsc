@@ -2,8 +2,8 @@
 
 A Model Context Protocol (MCP) server that connects [Google Search Console](https://search.google.com/search-console/about) (GSC) to AI assistants, allowing you to analyze your SEO data through natural language conversations. Works with **Claude Desktop**, **Cursor**, **Codex CLI**, **Gemini CLI**, **Antigravity**, and any other MCP-compatible client.
 
-> **Prefer zero setup?** There's also a hosted version of this MCP server with one-click Google sign-in, no Python, no terminal, and added GA4 tools — works in Claude.ai, ChatGPT, Cursor, Claude Desktop, and any MCP client.
-> → [**Advanced GSC MCP (hosted)**](https://www.advancedgsc.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=mcp-gsc&utm_content=hero-callout) · starts at $12/mo during the founding cohort.
+> **Skip setup, get more.** A more advanced hosted version — one-click sign-in, added GA4 tools. Works with Claude Desktop, Claude Code, Claude.ai, Codex, Cursor, and any MCP client. Only **100 seats**.
+> → [**Advanced GSC MCP (hosted)**](https://www.advancedgsc.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=mcp-gsc&utm_content=hero-callout)
 
 ---
 
@@ -67,7 +67,7 @@ A Model Context Protocol (MCP) server that connects [Google Search Console](http
 
 <div align="center">
   <a href="https://www.advancedgsc.com/mcp?utm_source=github&utm_medium=readme&utm_campaign=mcp-gsc&utm_content=banner">
-    <img src="assets/mcp-banner.jpg" alt="Skip setup — try the hosted MCP server with one-click Google sign-in. Works in ChatGPT and Claude web. Includes GA4 and advanced SEO tools." width="800" style="margin: 20px 0; border-radius: 8px;">
+    <img src="assets/banner-1.jpg" alt="Skip setup — try the hosted MCP server with one-click Google sign-in. Works in ChatGPT and Claude web. Includes GA4 and advanced SEO tools." width="800" style="margin: 20px 0; border-radius: 8px;">
   </a>
 </div>
 
@@ -102,7 +102,7 @@ On first use, a browser window will open asking you to sign in to your Google ac
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=vhIOoD7B8Ow">
-    <img src="assets/new-video-thumbnail.jpg" alt="GSC MCP Server Installation Guide 2026" width="600" style="margin: 20px 0; border-radius: 8px;">
+    <img src="assets/seo-mcp-install-video-1.jpg" alt="GSC MCP Server Installation Guide 2026" width="600" style="margin: 20px 0; border-radius: 8px;">
   </a>
 </div>
 
@@ -222,7 +222,7 @@ env = { GSC_CREDENTIALS_PATH = "/full/path/to/service_account.json", GSC_SKIP_OA
 
 ---
 
-> **Finding your uvx path:** Run `which uvx` in Terminal after installing uv. On macOS it is typically `/Users/YOUR_NAME/.local/bin/uvx`. Replace `/FULL/PATH/TO/uvx` in the configs above with that path.
+> **Finding your uvx path:** On macOS/Linux run `which uvx` in Terminal after installing uv (typically `/Users/YOUR_NAME/.local/bin/uvx`). On Windows, run `Get-Command uvx | Select-Object -ExpandProperty Source` in PowerShell (or `where uvx` in cmd) — it's usually `C:\Users\YOUR_NAME\.local\bin\uvx.exe`. Replace `/FULL/PATH/TO/uvx` in the configs above with that path.
 >
 > **Why the full path?** GUI apps like Claude Desktop and Cursor launch without reading your shell config (`~/.zshrc`), so they don't know about `~/.local/bin`. Using the full path guarantees it works regardless of how the app is launched. If you see a `spawn uvx ENOENT` error, this is the fix.
 
@@ -238,11 +238,13 @@ For OAuth: on first use, a browser window will open automatically for login. Aft
 
 <div align="center">
   <a href="https://youtu.be/PCWsK5BgSd0">
-    <img src="https://i.ytimg.com/vi/PCWsK5BgSd0/maxresdefault.jpg" alt="Google Search Console API Setup Tutorial" width="600" style="margin: 20px 0; border-radius: 8px;">
+    <img src="assets/gsc-mcp-seo-video-2.jpg" alt="Google Search Console API Setup Tutorial" width="600" style="margin: 20px 0; border-radius: 8px;">
   </a>
 </div>
 
 Use this if you want to modify the code or run a specific local version. This method uses the video tutorial above for the credential setup steps.
+
+> **Requires Python 3.11+.** This server will not start on Python 3.10 or older — and when it's launched by a GUI client like Claude Desktop, it fails silently (no tools appear and no log file is written). Check your version with `python --version`. If it's below 3.11, install [Python 3.11 or newer](https://www.python.org/downloads/) and recreate your virtual environment. The uvx method (Option A) avoids this entirely by managing the Python version for you, so it's the recommended path on Windows.
 
 **Clone the repo:**
 ```bash
@@ -353,12 +355,18 @@ After installing, configure your credentials (see Step 1 above) then use the bun
 Your AI client can't find `uvx`. Use the full path instead of just `uvx`:
 
 ```bash
-# Find your full path:
+# Find your full path (macOS/Linux):
 which uvx
 # Typically: /Users/YOUR_NAME/.local/bin/uvx
 ```
 
-Replace `"command": "uvx"` with `"command": "/Users/YOUR_NAME/.local/bin/uvx"` in your config.
+```powershell
+# Find your full path (Windows PowerShell):
+Get-Command uvx | Select-Object -ExpandProperty Source
+# Typically: C:\Users\YOUR_NAME\.local\bin\uvx.exe
+```
+
+Replace `"command": "uvx"` with the full path (e.g. `"command": "/Users/YOUR_NAME/.local/bin/uvx"`) in your config.
 
 ### `uv --version` gives "command not found" right after installing
 
